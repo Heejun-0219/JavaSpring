@@ -2,7 +2,7 @@ package hello.core.beanfind;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import hello.core.Appconfig;
+import hello.core.AppConfig;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 class ApplicationContextBasicFindTest {
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
+    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
     @Test
     @DisplayName("빈 이름으로 조회")

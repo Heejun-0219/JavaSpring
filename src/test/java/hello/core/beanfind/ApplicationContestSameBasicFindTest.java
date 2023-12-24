@@ -1,6 +1,5 @@
 package hello.core.beanfind;
 
-import hello.core.Appconfig;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import java.util.Map;
