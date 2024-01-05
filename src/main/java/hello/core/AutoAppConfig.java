@@ -7,6 +7,9 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
+        // @Component가 붙은 클래스를 탐색 시작 위치를 지정한다.
+        // 이 패키지를 포함해서 하위 패키지를 모두 탐색한다.
+        basePackages = "hello.core",
         excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 // @Component가 붙은 모든 클래스를 스프링 빈으로 등록한다.
