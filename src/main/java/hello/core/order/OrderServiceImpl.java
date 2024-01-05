@@ -5,36 +5,38 @@ import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor // final이 붙은 필드를 모아서 생성자를 자동으로 만들어줌
 public class OrderServiceImpl implements OrderService {
-  private MemberRepository memberRepository;
+  private final MemberRepository memberRepository;
 //    @Autowired private MemberRepository memberRepository;
     //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); DIP 위반
-  private DiscountPolicy discountPolicy;
+  private final DiscountPolicy discountPolicy;
 //    @Autowired private DiscountPolicy discountPolicy;
 
 //    @Autowired(required = false)
-    @Autowired
-    public void setMemberRepository(MemberRepository memberRepository) {
-        System.out.println("memberRepository = " + memberRepository);
-        this.memberRepository = memberRepository;
-    }
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        System.out.println("memberRepository = " + memberRepository);
+//        this.memberRepository = memberRepository;
+//    }
 
 //    @Autowired(required = false)
-    @Autowired
-    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-        System.out.println("discountPolicy = " + discountPolicy);
-        this.discountPolicy = discountPolicy;
-    }
-
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        System.out.println("discountPolicy = " + discountPolicy);
+//        this.discountPolicy = discountPolicy;
+//    }
+//
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
